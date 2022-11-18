@@ -1,15 +1,21 @@
 import Form from "../../components/Form";
 import List from "../../components/List";
-import { Container, FlexContainer, Box } from "../../components/Static";
+import {
+  Container,
+  FlexContainer,
+  Box,
+  FlexDiv,
+} from "../../components/Static";
+import Typograph from "../../components/Typograph";
 
 const Home = () => {
   return (
     <Container>
       <Box>
-        <div>
-          <h1>Simule sua Antecipação</h1>
+        <FlexDiv>
+          <Typograph text="Simule sua Antecipação"></Typograph>
           <Form />
-        </div>
+        </FlexDiv>
         <FlexContainer>
           <h3>VOCÊ RECEBERÁ:</h3>
           <List />

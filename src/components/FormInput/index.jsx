@@ -1,3 +1,5 @@
+import { CustomError } from "./styles";
+
 const FormInput = ({
   inputType = "text",
   defaultName,
@@ -9,6 +11,11 @@ const FormInput = ({
   return (
     <>
       <label htmlFor={defaultName}>{labelText}</label>
+      {formField.error ? (
+        <CustomError>{formField.error}</CustomError>
+      ) : (
+        <CustomError />
+      )}
       <input
         type={inputType}
         id={defaultName}
@@ -16,7 +23,6 @@ const FormInput = ({
         placeholder={placeholder}
         {...{ formField }.inputProps}
       />
-      {formField.error ? <p>{formField.error}</p> : null}
     </>
   );
 };

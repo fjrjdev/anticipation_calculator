@@ -10,24 +10,30 @@ export const TagsContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   border-radius: 5px;
-
+  padding-left: 1%;
+  &:focus {
+    border: solid 1px #3874ff;
+  }
   #input {
     border: none;
     width: 100%;
     padding-left: 1rem;
     min-width: 15%;
     max-width: 100%;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   .tag {
     display: flex;
     align-items: center;
-    margin: 7px 0;
     margin-right: 10px;
     padding: 0 10px;
     padding-right: 5px;
     border-radius: 5px;
-    background-color: #5283c2;
+    background-color: #3880fb;
     white-space: nowrap;
     color: white;
   }

@@ -1,9 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    body{
-        background-color: var(--pearl);
+    :root {
+        --primary-color: #3880fb;
+        --sub-color: #3874ff;
+        --error-color: #c40707e0;
     }
+
     html, body, div, span, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote,
     a, address, cite, code strong,center,

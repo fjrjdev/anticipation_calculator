@@ -21,10 +21,20 @@ const StyledForm = styled.form`
       -webkit-appearance: none;
       margin: 0;
     }
+    &:focus {
+      outline: solid 1px var(--sub-color);
+    }
   }
   button {
     width: 100%;
     max-width: 80%;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 16px;
+    border-style: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
   }
 
   @media screen and (max-width: 625px) {

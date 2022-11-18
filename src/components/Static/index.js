@@ -34,3 +34,9 @@ export const Box = styled.div`
     flex-direction: column;
   }
 `;
+export const FlexDiv = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+`;
