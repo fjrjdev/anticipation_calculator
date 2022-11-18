@@ -51,7 +51,8 @@ const Tags = () => {
         id="input"
         value={input}
         type="number"
-        placeholder="Digite os dias separados com , "
+        min="1"
+        placeholder="Digite os períodos separados com , "
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
         onChange={onChange}

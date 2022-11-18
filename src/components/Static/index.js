@@ -13,16 +13,24 @@ export const FlexContainer = styled.div`
   width: 100%;
   flex-direction: column;
   display: flex;
-  max-width: 275px;
+  align-items: center;
   gap: 1rem;
+
+  @media screen and (max-width: 625px) {
+    align-items: flex-start;
+  }
 `;
 
 export const Box = styled.div`
   width: 100%;
   display: flex;
-  max-width: 750px;
-  min-height: 550px;
+  max-width: 60rem;
+  min-height: 35rem;
   justify-content: space-around;
   background-color: white;
   padding: 3rem;
+
+  @media screen and (max-width: 625px) {
+    flex-direction: column;
+  }
 `;

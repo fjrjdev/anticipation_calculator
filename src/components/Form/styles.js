@@ -15,10 +15,20 @@ const StyledForm = styled.form`
     border: 1px grey solid;
     height: 45px;
     border-radius: 5px;
+    margin: 0;
+    &::-webkit-outer-spin-button,
+    ::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
   button {
     width: 100%;
     max-width: 80%;
+  }
+
+  @media screen and (max-width: 625px) {
+    min-width: 20rem;
   }
 `;
 
