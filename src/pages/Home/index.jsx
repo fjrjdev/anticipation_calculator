@@ -6,14 +6,16 @@ import {
   Box,
   FlexDiv,
 } from "../../components/Static";
-import Typograph from "../../components/Typograph";
+import { StyledTypo } from "../../components/Typograph/styles.js";
 
 const Home = () => {
   return (
     <Container>
       <Box>
         <FlexDiv>
-          <Typograph text="Simule sua Antecipação"></Typograph>
+          <StyledTypo tag="h1" fontWeight={500} fontSize="lg">
+            Simule sua Antecipação
+          </StyledTypo>
           <Form />
         </FlexDiv>
         <FlexContainer>

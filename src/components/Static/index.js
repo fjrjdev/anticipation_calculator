@@ -39,4 +39,5 @@ export const FlexDiv = styled.div`
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  gap: 1rem;
 `;
