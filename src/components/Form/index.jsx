@@ -4,6 +4,7 @@ import { StatesContext } from "../../contexts/StateContext";
 import { StyledForm } from "./styles";
 import { useForm, useNumber } from "lx-react-form";
 import Tags from "../Tags";
+import FormInput from "../FormInput";
 
 const Form = () => {
   const { tags } = useContext(StatesContext);
@@ -38,35 +39,31 @@ const Form = () => {
   });
   return (
     <StyledForm onSubmit={form.handleSubmit}>
-      <label htmlFor="venda">Informe o valor da venda *</label>
-      <input
-        type="number"
-        id="venda"
-        min="1"
-        placeholder="Digite aqui seu valor da venda"
-        {...venda.inputProps}
+      <FormInput
+        inputType={"number"}
+        defaultName={"venda"}
+        labelText={"Informe o valor da venda *"}
+        min={0}
+        placeholder={"Digite aqui seu valor da venda"}
+        formField={venda}
       />
-      {venda.error ? <p>{venda.error}</p> : null}
 
-      <label htmlFor="parcelas">Em quantas parcelas *</label>
-      <input
-        type="number"
-        id="parcelas"
-        min="2"
-        placeholder="Digite aqui em quantas parcelas"
-        {...parcelas.inputProps}
+      <FormInput
+        inputType={"number"}
+        defaultName={"parcelas"}
+        labelText={"Em quantas parcelas *"}
+        min={2}
+        placeholder={"Digite aqui em quantas parcelas"}
+        formField={parcelas}
       />
-      {parcelas.error ? <p>{parcelas.error}</p> : null}
-
-      <label htmlFor="mdr">Informe o percentual de MDR *</label>
-      <input
-        type="number"
-        id="mdr"
-        min="0"
-        placeholder="Digite aqui o percentual de MDR *"
-        {...mdr.inputProps}
+      <FormInput
+        inputType={"number"}
+        defaultName={"mdr"}
+        labelText={"Informe o percentual de MDR *"}
+        min={0}
+        placeholder={"Digite aqui o percentual de MDR *"}
+        formField={mdr}
       />
-      {mdr.error ? <p>{mdr.error}</p> : null}
 
       <label htmlFor="periodos">Informe os períodos de recebimento</label>
       <Tags id="periodos" />
