@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { StatesContext } from "../../contexts/StateContext";
 import { TagsContainer } from "./styles";
 
 const Tags = () => {
+  const { tags, setTags } = useContext(StatesContext);
   const [input, setInput] = useState("");
-  const [tags, setTags] = useState([]);
   const [isKeyReleased, setIsKeyReleased] = useState(false);
 
   const onChange = (e) => {
@@ -41,7 +42,7 @@ const Tags = () => {
 
   return (
     <TagsContainer className="container">
-      {tags.map((tag, index) => (
+      {tags?.map((tag, index) => (
         <div key={index} className="tag">
           {tag}
           <button onClick={() => deleteTag(index)}>x</button>
