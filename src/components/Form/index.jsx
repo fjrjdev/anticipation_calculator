@@ -1,8 +1,13 @@
+import { useContext } from "react";
+import { StatesContext } from "../../contexts/StateContext";
+
 import { StyledForm } from "./styles";
 import { useForm, useNumber } from "lx-react-form";
 import Tags from "../Tags";
 
 const Form = () => {
+  const { tags } = useContext(StatesContext);
+
   const venda = useNumber({
     name: "venda",
     initialValue: 0,
@@ -23,7 +28,12 @@ const Form = () => {
   const form = useForm({
     formFields: [venda, parcelas, mdr],
     submitCallback: (formData) => {
-      console.log(formData);
+      if (tags?.length >= 1) {
+        const request = { days: tags, ...formData };
+        console.log(request);
+      } else {
+        console.log(formData);
+      }
     },
   });
   return (
