@@ -3,6 +3,9 @@ import Typograph from ".";
 
 export const StyledTypo = styled(Typograph)`
   font-weight: ${({ fontWeight }) => fontWeight};
+  color: ${({ color }) => `var(${color})`};
+  font-style: ${({ fontStyle }) => fontStyle};
+
   ${({ fontSize }) => {
     switch (fontSize) {
       case "lg":

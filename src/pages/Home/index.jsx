@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import Form from "../../components/Form";
 import List from "../../components/List";
 import {
@@ -7,8 +8,10 @@ import {
   FlexDiv,
 } from "../../components/Static";
 import { StyledTypo } from "../../components/Typograph/styles.js";
+import { StatesContext } from "../../contexts/StateContext";
 
 const Home = () => {
+  const { loading } = useContext(StatesContext);
   return (
     <Container>
       <Box>
@@ -19,8 +22,16 @@ const Home = () => {
           <Form />
         </FlexDiv>
         <FlexContainer>
-          <h3>VOCÊ RECEBERÁ:</h3>
-          <List />
+          <StyledTypo
+            color="--primary-color"
+            tag="h3"
+            fontWeight={600}
+            fontSize="md"
+            fontStyle="Italic"
+          >
+            VOCÊ RECEBERÁ:
+          </StyledTypo>
+          {loading ? <p>Loading</p> : <List />}
         </FlexContainer>
       </Box>
     </Container>

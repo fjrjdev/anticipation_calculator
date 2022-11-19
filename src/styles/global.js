@@ -4,6 +4,8 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         --primary-color: #3880fb;
         --sub-color: #3874ff;
+        --grey-color: #666666;
+        --grey-light-color: #8b8b8b;
         --error-color: #c40707e0;
     }
 
