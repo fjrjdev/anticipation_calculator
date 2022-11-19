@@ -4,9 +4,14 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         --primary-color: #3880fb;
         --sub-color: #3874ff;
+        --light-blue-color: #e7eff8;
         --grey-color: #666666;
         --grey-light-color: #8b8b8b;
+        --white-background-color: #f7f9fa;
         --error-color: #c40707e0;
+    }
+    button{
+        cursor: pointer
     }
 
     html, body, div, span, object, iframe,
@@ -38,4 +43,7 @@ export const GlobalStyle = createGlobalStyle`
     body, button, input{
         font-family: 'Inter', sans-serif;
 }
+    li{
+        list-style: none;
+    }
 `;
