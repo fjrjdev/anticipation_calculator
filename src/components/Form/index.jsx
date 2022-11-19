@@ -8,7 +8,7 @@ import { CustomError } from "../CustomError/styles";
 import LabelForm from "./LabelForm";
 
 const Form = () => {
-  const { tags, calculateRequest } = useContext(StatesContext);
+  const { tags, calculateRequest, loading } = useContext(StatesContext);
 
   const venda = useNumber({
     name: "venda",
@@ -41,10 +41,8 @@ const Form = () => {
           days: tags,
           ...request,
         };
-        console.log(requestTags);
         calculateRequest(requestTags);
       } else {
-        console.log(request);
         calculateRequest(request);
       }
     },
@@ -88,7 +86,9 @@ const Form = () => {
         labelText="Informe os períodos para recebimento"
       />
       <Tags id="periodos" />
-      <button type="submit">Calcular</button>
+      <button type="submit" disabled={loading}>
+        Calcular
+      </button>
     </StyledForm>
   );
 };

@@ -33,7 +33,11 @@ const StyledForm = styled.form`
     border-style: none;
     border-radius: 5px;
     padding: 10px;
-    cursor: pointer;
+    transition: 0.4s;
+    &:hover {
+      filter: brightness(1.1);
+      box-shadow: 0px 4px 25px rgba(255, 249, 249, 0.25);
+    }
   }
 
   @media screen and (max-width: 625px) {
