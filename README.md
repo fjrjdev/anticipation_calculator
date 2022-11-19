@@ -15,6 +15,13 @@ Today our customers need to know how much it costs to anticipate a transaction, 
 - [Styled Componets](https://styled-components.com/)
 - [LX React Form](https://www.npmjs.com/package/lx-react-form)
 
+## Usage
+
+### **Deploy**
+
+```
+https://calc-frontend.vercel.app/
+```
 # Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
