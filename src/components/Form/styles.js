@@ -7,7 +7,6 @@ const StyledForm = styled.form`
   gap: 1rem;
   min-width: 24rem;
   align-items: flex-start;
-
   input {
     width: 100%;
     max-width: 75%;

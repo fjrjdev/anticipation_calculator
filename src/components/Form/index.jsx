@@ -4,10 +4,11 @@ import { StatesContext } from "../../contexts/StateContext";
 import { StyledForm } from "./styles";
 import { useForm, useNumber } from "lx-react-form";
 import Tags from "../Tags";
-import FormInput from "../FormInput";
+import { CustomError } from "../CustomError/styles";
+import LabelForm from "./LabelForm";
 
 const Form = () => {
-  const { tags } = useContext(StatesContext);
+  const { tags, calculateRequest } = useContext(StatesContext);
 
   const venda = useNumber({
     name: "venda",
@@ -24,48 +25,68 @@ const Form = () => {
   const mdr = useNumber({
     name: "mdr",
     min: 0,
+    max: 100,
   });
 
   const form = useForm({
     formFields: [venda, parcelas, mdr],
     submitCallback: (formData) => {
+      const request = {
+        amount: formData.venda,
+        installments: formData.parcelas,
+        mdr: formData.mdr,
+      };
       if (tags?.length >= 1) {
-        const request = { days: tags, ...formData };
-        console.log(request);
+        const requestTags = {
+          days: tags,
+          ...request,
+        };
+        console.log(requestTags);
+        calculateRequest(requestTags);
       } else {
-        console.log(formData);
+        console.log(request);
+        calculateRequest(request);
       }
     },
   });
   return (
     <StyledForm onSubmit={form.handleSubmit}>
-      <FormInput
-        inputType={"number"}
-        defaultName={"venda"}
-        labelText={"Informe o valor da venda *"}
+      <LabelForm inputName="venda" labelText="Informe o valor da venda *" />
+      {venda.error ? <CustomError>{venda.error}</CustomError> : <CustomError />}
+      <input
+        type={"number"}
+        id="venda"
         min={0}
         placeholder={"Digite aqui seu valor da venda"}
-        formField={venda}
+        {...venda.inputProps}
       />
-
-      <FormInput
-        inputType={"number"}
-        defaultName={"parcelas"}
-        labelText={"Em quantas parcelas *"}
+      <LabelForm inputName="parcelas" labelText="Em quantas parcelas *" />
+      {parcelas.error ? (
+        <CustomError>{parcelas.error}</CustomError>
+      ) : (
+        <CustomError />
+      )}
+      <input
+        type={"number"}
+        id={"parcelas"}
         min={2}
         placeholder={"Digite aqui em quantas parcelas"}
-        formField={parcelas}
+        {...parcelas.inputProps}
       />
-      <FormInput
-        inputType={"number"}
-        defaultName={"mdr"}
-        labelText={"Informe o percentual de MDR *"}
+      <LabelForm inputName="mdr" labelText="Informe  o percentual de MDR *" />
+      {mdr.error ? <CustomError>{mdr.error}</CustomError> : <CustomError />}
+      <input
+        type={"number"}
+        id={"mdr"}
         min={0}
+        step="0.01"
         placeholder={"Digite aqui o percentual de MDR *"}
-        formField={mdr}
+        {...mdr.inputProps}
       />
-
-      <label htmlFor="periodos">Informe os períodos de recebimento</label>
+      <LabelForm
+        inputName="periodos"
+        labelText="Informe os períodos para recebimento"
+      />
       <Tags id="periodos" />
       <button type="submit">Calcular</button>
     </StyledForm>
