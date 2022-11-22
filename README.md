@@ -9,12 +9,19 @@ Today our customers need to know how much it costs to anticipate a transaction, 
 
 ## Used in this Project
 
-- <a href="https://burguer-kenzie-neon.vercel.app/" target="_blank"><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/> </a>
+- <a href="https://calc-frontend.vercel.app/" target="_blank"><img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/> </a>
 - <a href="https://reactjs.org/" target="_blank"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> </a>
 - [Axios](https://axios-http.com/)
 - [Styled Componets](https://styled-components.com/)
 - [LX React Form](https://www.npmjs.com/package/lx-react-form)
 
+## Usage
+
+### **Deploy**
+
+```
+https://calc-frontend.vercel.app/
+```
 # Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
