@@ -10,12 +10,12 @@ import LabelForm from "./LabelForm";
 const Form = () => {
   const { tags, calculateRequest, loading } = useContext(StatesContext);
 
-  const venda = useNumber({
-    name: "venda",
+  const amount = useNumber({
+    name: "amount",
     initialValue: 0,
   });
-  const parcelas = useNumber({
-    name: "parcelas",
+  const installments = useNumber({
+    name: "installments",
     min: 2,
     max: 12,
     errorText: {
@@ -29,12 +29,10 @@ const Form = () => {
   });
 
   const form = useForm({
-    formFields: [venda, parcelas, mdr],
+    formFields: [amount, installments, mdr],
     submitCallback: (formData) => {
       const request = {
-        amount: formData.venda,
-        installments: formData.parcelas,
-        mdr: formData.mdr,
+        ...formData,
       };
       if (tags?.length >= 1) {
         const requestTags = {
@@ -49,18 +47,22 @@ const Form = () => {
   });
   return (
     <StyledForm onSubmit={form.handleSubmit}>
-      <LabelForm inputName="venda" labelText="Informe o valor da venda *" />
-      {venda.error ? <CustomError>{venda.error}</CustomError> : <CustomError />}
+      <LabelForm inputName="amount" labelText="Informe o valor da venda *" />
+      {amount.error ? (
+        <CustomError>{amount.error}</CustomError>
+      ) : (
+        <CustomError />
+      )}
       <input
         type={"number"}
-        id="venda"
+        id="amount"
         min={0}
         placeholder={"Digite aqui seu valor da venda"}
-        {...venda.inputProps}
+        {...amount.inputProps}
       />
       <LabelForm inputName="parcelas" labelText="Em quantas parcelas *" />
-      {parcelas.error ? (
-        <CustomError>{parcelas.error}</CustomError>
+      {installments.error ? (
+        <CustomError>{installments.error}</CustomError>
       ) : (
         <CustomError />
       )}
@@ -69,7 +71,7 @@ const Form = () => {
         id={"parcelas"}
         min={2}
         placeholder={"Digite aqui em quantas parcelas"}
-        {...parcelas.inputProps}
+        {...installments.inputProps}
       />
       <LabelForm inputName="mdr" labelText="Informe  o percentual de MDR *" />
       {mdr.error ? <CustomError>{mdr.error}</CustomError> : <CustomError />}
