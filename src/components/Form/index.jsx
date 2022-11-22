@@ -31,17 +31,14 @@ const Form = () => {
   const form = useForm({
     formFields: [amount, installments, mdr],
     submitCallback: (formData) => {
-      const request = {
-        ...formData,
-      };
       if (tags?.length >= 1) {
         const requestTags = {
           days: tags,
-          ...request,
+          ...formData,
         };
         calculateRequest(requestTags);
       } else {
-        calculateRequest(request);
+        calculateRequest(formData);
       }
     },
   });
